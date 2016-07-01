@@ -2,6 +2,12 @@
 
 A utility for shallow rendering React components in tests.
 
+## Installation
+
+It's available on npm as [render-shallow](https://www.npmjs.com/package/render-shallow), so you can run:
+
+`npm install --save render-shallow`
+
 ## Usage
 
 `renderShallow` shallow renders a [React element](https://facebook.github.io/react/docs/glossary.html#react-elements), using React's [ShallowRenderer](https://facebook.github.io/react/docs/test-utils.html#shallow-rendering) test utility. It wraps the renderer creation, and returns the rendered component, along with some helpers to rerender the element, should it change.
@@ -9,8 +15,11 @@ A utility for shallow rendering React components in tests.
 ### API
 
 ##### renderShallow
-
 ```js
+// import renderShallow from 'render-shallow'
+// or:
+// const renderShallow = require('render-shallow')
+
 renderShallow(element ReactElement, context ReactContext[Object, optional])
 
 returns: Object { output ReactElement, rerender function, rerenderElement function }
