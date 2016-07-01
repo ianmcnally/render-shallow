@@ -4,10 +4,12 @@
   "description": "A utility for shallow rendering in React",
   "main": "render-shallow.js",
   "scripts": {
+    "ci": "npm run lint && npm run test:ci",
     "compile": "babel index.js --out-file render-shallow.js",
-    "test": "ava | tap-nyan",
+    "test": "ava --tap | tap-nyan",
+    "test:ci": "ava",
     "lint": "eslint index.js test",
-    "start": "ava --watch",
+    "start": "npm run test:ci -- --watch",
     "prepublish": "npm run compile"
   },
   "repository": {
@@ -34,8 +36,7 @@
     "require": [
       "babel-register"
     ],
-    "babel": "inherit",
-    "tap": true
+    "babel": "inherit"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",

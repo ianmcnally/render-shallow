@@ -2,6 +2,8 @@
 
 A utility for shallow rendering React components in tests.
 
+[![Build Status](https://travis-ci.org/ianmcnally/render-shallow.svg?branch=master)](https://travis-ci.org/ianmcnally/render-shallow)
+
 ## Installation
 
 It's available on npm as [render-shallow](https://www.npmjs.com/package/render-shallow), so you can run:

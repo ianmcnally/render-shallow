@@ -1,0 +1,7 @@
+language: node_js
+before_install:
+  - npm install -g npm@3
+node_js:
+  - "6.2.2"
+script:
+  - npm run ci
