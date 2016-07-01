@@ -1,0 +1,53 @@
+{
+  "name": "render-shallow",
+  "version": "0.1.0",
+  "description": "A utility for shallow rendering in React",
+  "main": "render-shallow.js",
+  "scripts": {
+    "compile": "babel index.js --out-file render-shallow.js",
+    "test": "ava | tap-nyan",
+    "lint": "eslint index.js test",
+    "start": "ava --watch",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ianmcnally/render-shallow.git"
+  },
+  "keywords": [
+    "shallow",
+    "render",
+    "react",
+    "test",
+    "testutil"
+  ],
+  "author": "Ian McNally <ianmcnally@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianmcnally/render-shallow/issues"
+  },
+  "homepage": "https://github.com/ianmcnally/render-shallow#readme",
+  "ava": {
+    "files": [
+      "test/*.spec.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit",
+    "tap": true
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-register": "^6.9.0",
+    "eslint": "^2.13.1",
+    "eslint-plugin-react": "^5.2.2",
+    "tap-nyan": "0.0.2"
+  },
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-addons-test-utils": "^15.1.0"
+  }
+}
