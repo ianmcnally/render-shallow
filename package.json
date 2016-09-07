@@ -1,6 +1,6 @@
 {
   "name": "render-shallow",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A utility for shallow rendering in React",
   "main": "render-shallow.js",
   "scripts": {
@@ -54,8 +54,7 @@
     "eslint": "^2.13.1",
     "eslint-plugin-react": "^5.2.2",
     "jest": "^15.1.1",
-    "sinon": "^1.17.5",
-    "tap-nyan": "0.0.2"
+    "sinon": "^1.17.5"
   },
   "dependencies": {
     "react": "^15.1.0",
