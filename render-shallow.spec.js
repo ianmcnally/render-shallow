@@ -1,4 +1,4 @@
-import renderShallow from '../'
+import renderShallow from './'
 import React, { Component, isValidElement, PropTypes } from 'react'
 import { stub, spy } from 'sinon'
 

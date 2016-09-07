@@ -10,7 +10,7 @@
     "test:ci": "npm run test:coverage",
     "test:watch": "npm t -- --watch",
     "test:coverage": "npm t -- --coverage",
-    "lint": "eslint index.js test",
+    "lint": "eslint index.js render-shallow.spec.js",
     "start": "npm run test:watch",
     "prepublish": "npm run compile"
   },
@@ -39,10 +39,7 @@
         "lines": 100,
         "statements": 100
       }
-    },
-    "testPathDirs": [
-      "test"
-    ]
+    }
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
