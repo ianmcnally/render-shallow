@@ -118,6 +118,8 @@
         "node": true
     },
     "globals": {
+      "expect": true,
+      "it": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {

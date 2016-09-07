@@ -3,3 +3,4 @@ npm-debug.log
 render-shallow.js
 node_modules
 *.sublime-*
+coverage

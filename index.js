@@ -6,9 +6,7 @@ const renderShallow = (element, context = {}, renderer = createRenderer()) => {
   const output = () => renderer.getRenderOutput()
 
   return {
-    instance() {
-      return renderer.getMountedInstance()
-    },
+    instance() { return renderer.getMountedInstance() },
     output: output(),
     rerender: output,
     rerenderElement(newElement, newContext = context) {

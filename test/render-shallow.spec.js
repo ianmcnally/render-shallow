@@ -1,45 +1,44 @@
-import test from 'ava'
 import renderShallow from '../'
 import React, { Component, isValidElement, PropTypes } from 'react'
 import { stub, spy } from 'sinon'
 
-test('renderShallow - returns the correct API', t => {
+it('returns the correct API', () => {
   const TestComponent = () => <p />
 
   const result = renderShallow(<TestComponent />)
 
-  t.deepEqual(Object.keys(result), ['instance', 'output', 'rerender', 'rerenderElement'])
+  expect(Object.keys(result)).toEqual( ['instance', 'output', 'rerender', 'rerenderElement'])
 })
 
-test('renderShallow.output - is a React element', t => {
+it('output - is a React element', () => {
   const TestComponent = () => <p />
 
   const { output } = renderShallow(<TestComponent />)
 
-  t.true(isValidElement(output))
-  t.is(output.type, 'p')
+  expect(isValidElement(output)).toBe(true)
+  expect(output.type).toEqual('p')
 })
 
-test('renderShallow.instance() - returns the instance the element', t => {
+it('instance() - returns the instance the element', () => {
   const mockInstanceReturn = 47
   const rendererStub = { getMountedInstance: stub().returns(mockInstanceReturn), render: spy(), getRenderOutput: spy() }
   const TestComponent = () => <p />
 
   const { instance } = renderShallow(<TestComponent />, {}, rendererStub)
 
-  t.is(instance(), mockInstanceReturn)
+  expect(instance()).toEqual(mockInstanceReturn)
 })
 
-test('renderShallow.rerender - returns a React element', t => {
+it('rerender - returns a React element', () => {
   const TestComponent = () => <p />
 
   const { rerender } = renderShallow(<TestComponent />)
   const output = rerender()
 
-  t.true(isValidElement(output))
+  expect(isValidElement(output)).toBe(true)
 })
 
-test('renderShallow.rerender - rerenders the React component from .output', t => {
+it('rerender - rerenders the React component from .output', () => {
   class TestComponent extends Component {
     constructor(props) {
       super(props)
@@ -56,10 +55,10 @@ test('renderShallow.rerender - rerenders the React component from .output', t =>
 
   const rerenderedElement = rerender()
 
-  t.is(rerenderedElement.props.children, 'I am working!')
+  expect(rerenderedElement.props.children).toEqual('I am working!')
 })
 
-test('renderShallow accepts a context and renders the component with it', t => {
+it('accepts a context and renders the component with it', () => {
   const context = { a : 100 }
   const TestComponent = () => <p />
   TestComponent.contextTypes = { a: PropTypes.number }
@@ -67,10 +66,10 @@ test('renderShallow accepts a context and renders the component with it', t => {
   const { instance } = renderShallow(<TestComponent />, context)
   const componentContext = instance().context
 
-  t.deepEqual(context, componentContext)
+  expect(context).toEqual(componentContext)
 })
 
-test('renderShallow.rerenderElement - with no new context specified and an existing context, reuses the existing context', t => {
+it('renderShallow.rerenderElement - with no new context specified and an existing context, reuses the existing context', () => {
   const context = { a : 100 }
   const TestComponent = () => <p />
   TestComponent.contextTypes = { a: PropTypes.number }
@@ -79,10 +78,10 @@ test('renderShallow.rerenderElement - with no new context specified and an exist
 
   const { instance } = rerenderElement(<TestComponent />)
 
-  t.deepEqual(instance().context, context)
+  expect(instance().context).toEqual(context)
 })
 
-test('renderShallow.rerenderElement - with a new context, uses that when rendering', t => {
+it('rerenderElement - with a new context, uses that when rendering', () => {
   const oldContext = { a :100 }
   const TestComponent = () => <p />
   TestComponent.contextTypes = { a: PropTypes.number }
@@ -93,5 +92,5 @@ test('renderShallow.rerenderElement - with a new context, uses that when renderi
 
   const { instance } = rerenderElement(<TestComponent />, newContext)
 
-  t.deepEqual(instance().context, newContext)
+  expect(instance().context).toEqual(newContext)
 })
