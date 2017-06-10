@@ -1,5 +1,6 @@
 import renderShallow from './'
-import React, { Component, isValidElement, PropTypes } from 'react'
+import React, { Component, isValidElement } from 'react'
+import PropTypes from 'prop-types'
 import { stub, spy } from 'sinon'
 
 it('returns the correct API', () => {

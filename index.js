@@ -1,6 +1,6 @@
-import { createRenderer } from 'react-addons-test-utils'
+import ShallowRenderer from 'react-test-renderer/shallow'
 
-const renderShallow = (element, context = {}, renderer = createRenderer()) => {
+const renderShallow = (element, context = {}, renderer = new ShallowRenderer()) => {
   renderer.render(element, context)
 
   const output = () => renderer.getRenderOutput()
