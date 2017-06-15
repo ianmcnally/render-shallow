@@ -1,5 +1,7 @@
 # renderShallow
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ianmcnally/render-shallow.svg)](https://greenkeeper.io/)
+
 A utility for shallow rendering React components in tests.
 
 [![Build Status](https://travis-ci.org/ianmcnally/render-shallow.svg?branch=master)](https://travis-ci.org/ianmcnally/render-shallow)
