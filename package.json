@@ -12,7 +12,7 @@
     "test:coverage": "npm t -- --coverage",
     "lint": "eslint index.js render-shallow.spec.js",
     "start": "npm run test:watch",
-    "prepublish": "npm run compile"
+    "prepublishOnly": "npm run compile"
   },
   "repository": {
     "type": "git",
