@@ -21,13 +21,12 @@ it('output - is a React element', () => {
 })
 
 it('instance() - returns the instance the element', () => {
-  const mockInstanceReturn = 47
-  const rendererStub = { getMountedInstance: stub().returns(mockInstanceReturn), render: spy(), getRenderOutput: spy() }
+  const rendererStub = { getMountedInstance: stub(), render: spy(), getRenderOutput: spy() }
   const TestComponent = () => <p />
 
   const { instance } = renderShallow(<TestComponent />, {}, rendererStub)
 
-  expect(instance()).toEqual(mockInstanceReturn)
+  expect(instance()).toEqual({ context: undefined })
 })
 
 it('rerender - returns a React element', () => {
@@ -64,7 +63,8 @@ it('accepts a context and renders the component with it', () => {
   const TestComponent = () => <p />
   TestComponent.contextTypes = { a: PropTypes.number }
 
-  const { instance } = renderShallow(<TestComponent />, context)
+  const re = renderShallow(<TestComponent />, context)
+  const { instance } = re
   const componentContext = instance().context
 
   expect(context).toEqual(componentContext)
