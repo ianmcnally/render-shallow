@@ -15,9 +15,8 @@ const renderShallow = (
       const isClassicalComponent = instance && instance.context
       if (isClassicalComponent) {
         return instance
-      } else {
-        return { ...instance, context: renderer._context }
       }
+      return { ...instance, context: renderer._context }
     },
     output: output(),
     rerender: output,
